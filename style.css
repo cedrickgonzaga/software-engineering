@@ -627,14 +627,27 @@ tbody tr:last-child td {
   transition: transform 0.3s ease, opacity 0.3s ease, background 0.15s;
   transform-origin: left center;
 }
-.hamburger.open span:nth-child(1) {
+
+/* Default state: Sidebar is OUT, so we show 'X' */
+.hamburger span:nth-child(1) {
   transform: rotate(45deg);
 }
-.hamburger.open span:nth-child(2) {
+.hamburger span:nth-child(2) {
   opacity: 0;
 }
-.hamburger.open span:nth-child(3) {
+.hamburger span:nth-child(3) {
   transform: rotate(-45deg);
+}
+
+/* Closed state: Sidebar is HIDDEN, so we show Hamburger lines */
+.hamburger.closed span:nth-child(1) {
+  transform: rotate(0);
+}
+.hamburger.closed span:nth-child(2) {
+  opacity: 1;
+}
+.hamburger.closed span:nth-child(3) {
+  transform: rotate(0);
 }
 
 /* Success Modal */

@@ -16,7 +16,7 @@ if (hamburger && sidebar && main) {
   hamburger.addEventListener("click", () => {
     sidebar.classList.toggle("closed");
     main.classList.toggle("expanded");
-    hamburger.classList.toggle("open");
+    hamburger.classList.toggle("closed");
   });
 }
 function showMessage(msg, isError = false) {
