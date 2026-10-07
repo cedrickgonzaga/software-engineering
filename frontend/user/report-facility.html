@@ -27,28 +27,38 @@
 </header>
 
 <aside class="sidebar" id="sidebar">
-  <a href="dashboard.html" class="nav-link"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
-  <a href="tickets.html" class="nav-link active"><span class="material-symbols-outlined">confirmation_number</span>Tickets</a>
+  <a href="dashboard.html" class="nav-link"><span class="material-symbols-outlined">home</span>Dashboard</a>
+  <a href="report-facility.html" class="nav-link active"><span class="material-symbols-outlined">report</span>Report Issue</a>
+  <a href="activity.html" class="nav-link"><span class="material-symbols-outlined">history</span>My Activity</a>
   <div class="sidebar-bottom">
     <button id="logoutBtn" class="btn btn-secondary"><span class="material-symbols-outlined">logout</span>Logout</button>
   </div>
 </aside>
 <main class="main" id="main">
-  <h1 class="page-title">Facility Tickets</h1>
-  <div class="card table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Category</th>
-          <th>Status</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody id="ticketsContainer">
-      </tbody>
-    </table>
+  <h1 class="page-title">Report Issue</h1>
+  <div class="card">
+    <form id="reportFacilityForm">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" class="form-control" required>
+          <option value="IT">IT Support</option>
+          <option value="Facility">Facility Maintenance</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Report</button>
+    </form>
   </div>
 </main>
 
