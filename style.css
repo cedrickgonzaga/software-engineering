@@ -599,3 +599,92 @@ tbody tr:last-child td {
     color: #000000;
   }
 }
+
+/* Added CSS */
+.header-icon-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.375rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  width: 2rem;
+  height: 2rem;
+}
+.header-icon-btn:hover {
+  background: var(--surface2);
+}
+.header-icon-btn .material-symbols-outlined {
+  font-size: 1.125rem;
+}
+
+/* Hamburger Animation */
+.hamburger span {
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.15s;
+  transform-origin: left center;
+}
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Success Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-content {
+  background: var(--surface);
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  text-align: center;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  transform: scale(0.8);
+  opacity: 0;
+}
+@keyframes modalPop {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.check-animation {
+  margin-bottom: var(--space-2);
+}
+.check-icon {
+  font-size: 4rem;
+  color: var(--accent);
+  animation: checkPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s forwards;
+  transform: scale(0);
+}
+@keyframes checkPop {
+  to {
+    transform: scale(1);
+  }
+}
+.modal-content h3 {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-1);
+}
+.modal-content p {
+  color: var(--text-muted);
+}

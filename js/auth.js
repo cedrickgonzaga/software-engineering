@@ -65,3 +65,8 @@ const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", logout);
 }
+
+const logoutBtnTop = document.getElementById("logoutBtnTop");
+if (logoutBtnTop) {
+  logoutBtnTop.addEventListener("click", logout);
+}
