@@ -33,7 +33,7 @@ The system's user interface was designed and prototyped in Figma.
 
 The complete system paper and project documentation can be found here:
 
-**[View System Paper](https://docs.google.com/document/d/1R4j2eDW7B2W6vQdbSOE5zoq0jA2mE-Dz/edit?usp=sharing&ouid=107021542035450486970&rtpof=true&sd=true)**
+**[View System Paper](https://docs.google.com/document/d/1xq19nA-acCqtag0hCwudHeHXl-dJVHQuFUcRLaxJMB8/mobilebasic#heading=h.y22zn62n4rzk)**
 
 ---
 
