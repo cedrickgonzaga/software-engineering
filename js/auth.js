@@ -1,41 +1,48 @@
-const API_BASE = "http://127.0.0.1:8000";
 
 async function login(email, password) {
   try {
-    const res = await fetch(`${API_BASE}/auth/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password })
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password,
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.detail || "Login failed");
-    localStorage.setItem("token", data.access_token);
-    localStorage.setItem("role", data.role);
-    if (data.role === "it_admin") window.location.href = "../it-admin/dashboard.html";
-    else if (data.role === "facility_admin") window.location.href = "../facility-admin/dashboard.html";
+    
+    if (error) throw error;
+
+
+    const role = data.user.user_metadata.role || 'user';
+    localStorage.setItem("role", role);
+
+    if (role === "it_admin") window.location.href = "../it-admin/dashboard.html";
+    else if (role === "facility_admin") window.location.href = "../facility-admin/dashboard.html";
     else window.location.href = "../user/dashboard.html";
   } catch (err) {
-    showMessage(err.message, true);
+    alert(err.message);
   }
 }
 
 async function register(email, password, fullName, role) {
   try {
-    const res = await fetch(`${API_BASE}/auth/register`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, full_name: fullName, role })
+    const { data, error } = await supabaseClient.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          full_name: fullName,
+          role: role
+        }
+      }
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.detail || "Registration failed");
+
+    if (error) throw error;
+    alert("Registration successful! You can now log in.");
     window.location.href = "login.html";
   } catch (err) {
-    showMessage(err.message, true);
+    alert(err.message);
   }
 }
 
-function logout() {
-  localStorage.removeItem("token");
+async function logout() {
+  await supabaseClient.auth.signOut();
   localStorage.removeItem("role");
   window.location.href = "../landing/login.html";
 }
@@ -61,12 +68,28 @@ if (registerForm) {
   });
 }
 
-const logoutBtn = document.getElementById("logoutBtn");
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", logout);
-}
-
 const logoutBtnTop = document.getElementById("logoutBtnTop");
 if (logoutBtnTop) {
   logoutBtnTop.addEventListener("click", logout);
 }
+
+
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    const currentPath = window.location.pathname;
+    
+    const isPublicPage = currentPath.includes("landing") || currentPath.endsWith("index.html") || currentPath === "/";
+
+    if (!session && !isPublicPage) {
+
+        window.location.href = "../landing/login.html";
+    } else if (session && isPublicPage) {
+
+        const role = localStorage.getItem("role") || 'user';
+        if (role === "it_admin") window.location.href = "../it-admin/dashboard.html";
+        else if (role === "facility_admin") window.location.href = "../facility-admin/dashboard.html";
+        else window.location.href = "../user/dashboard.html";
+    }
+});
