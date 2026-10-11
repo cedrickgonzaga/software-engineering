@@ -8,16 +8,7 @@ It provides separate interfaces for users, facility administrators, and IT admin
 
 ---
 
-## 🌐 Live Demo
-
-| Interface                    | Link                                                                                                                 |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| **Landing Page**             | [Open Landing Page](https://cedrickgonzaga.github.io/software-engineering/landing/index.html)                        |
-| **User Dashboard**           | [Open User Dashboard](https://cedrickgonzaga.github.io/software-engineering/user/dashboard.html)                     |
-| **Facility Admin Dashboard** | [Open Facility Admin Dashboard](https://cedrickgonzaga.github.io/software-engineering/facility-admin/dashboard.html) |
-| **IT Admin Dashboard**       | [Open IT Admin Dashboard](https://cedrickgonzaga.github.io/software-engineering/it-admin/dashboard.html)             |
-
-> **Note:** The live demo is currently hosted using GitHub Pages.
+> **Note:** Sign in using admin accounts (it@gmail.com | asd123) (facility@gmail.com | asd123)
 
 ---
 
