@@ -61,10 +61,64 @@
           <div class="stat-value" id="stat-resolved">0</div>
           <div class="stat-label">Resolved</div>
         </div>
+            </div>
+      <div class="section-head" style="margin-top: var(--space-4);">
+        <h3>Recent Tickets</h3>
+        <a href="tickets.html" class="btn btn-secondary btn-sm">View All</a>
+      </div>
+      <div class="card table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="ticketsContainer"></tbody>
+        </table>
       </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <div id="ticketDetailModal" class="modal-overlay">
+  <div class="ticket-modal-card">
+    <div class="ticket-modal-header">
+      <div>
+        <span id="modalTicketId" class="ticket-id">#FP-000000</span>
+        <div id="modalTicketTitle" class="ticket-modal-title">Ticket Title</div>
+      </div>
+      <button id="closeModalBtn" class="theme-toggle" type="button">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="ticket-modal-meta">
+      <div>
+        <div class="meta-item-label">Category</div>
+        <div id="modalTicketCategory" class="meta-item-value">N/A</div>
+      </div>
+      <div>
+        <div class="meta-item-label">Location</div>
+        <div id="modalTicketLocation" class="meta-item-value">N/A</div>
+      </div>
+      <div>
+        <div class="meta-item-label">Status</div>
+        <div id="modalTicketStatus" class="meta-item-value">Pending</div>
+      </div>
+      <div>
+        <div class="meta-item-label">Date Submitted</div>
+        <div id="modalTicketDate" class="meta-item-value">N/A</div>
+      </div>
+    </div>
+    <div>
+      <div class="meta-item-label" style="margin-bottom: 0.375rem;">Description</div>
+      <div id="modalTicketDesc" class="ticket-modal-desc-box">No description provided.</div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="../js/supabase.js"></script>
 
     <script src="../js/shared.js"></script>
